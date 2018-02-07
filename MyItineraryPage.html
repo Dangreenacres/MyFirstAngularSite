@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app="itsApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<body ng-controller="itineraryController">
+    <h1>My itinerary page</h1>
+    <div ng-show="!isEditing">
+        <button ng-click="beginEditing()">Add New Itinerary</button>
+        <form>
+            <p>Search for itineraries <input type="text" ng-model="search"></p>
+        </form>
+        <p>
+            Here are your current itineraries
+                    <table>
+                        <tr>
+                            <th>Itinerary Name</th>
+                            <th>Destination</th>
+                            <th>Purpose</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                        <tr style="text-align: left;" ng-repeat="itinerary in itineraries | filter:search">
+                            <td style="text-align: left;" >{{itinerary.itiName}}</td>
+                            <td style="text-align: left;" >{{itinerary.destination}}</td>
+                            <td style="text-align: left;" >{{itinerary.purpose}}</td>
+                            <td style="text-align: left;" >{{itinerary.startDate | date: "dd/MM/yyyy"}}</td>
+                            <td style="text-align: left;" >{{itinerary.endDate | date: "dd/MM/yyyy"}}</td>
+                        </tr>
+                    </table>
+        </p>
+    </div>
+    <div ng-show="isEditing">
+        <h2>Add Itinerary</h2>
+        <label>Itinerary Name: <input ng-model="itineraryName" /></label>
+        <button ng-click="add()">Add</button>
+        <button ng-click="cancelAddition()">Cancel</button>
+    </div>
+</body>
+<script src="App/myApp.js"></script>
+<script src="App/Itinerary/itineraryModel.js"></script>
+<script src="App/Itinerary/itineraryController.js"></script>
+</html>

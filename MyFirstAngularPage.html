@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<body>
+    <h1>My First AngularJS Application</h1>
+    <div ng-app ng-init="itineraries=['October 2017 Business Development trip', 'November 2017 Client-site visit', 'January 2018 Scoping visit', 'May 2018 Recruitment visit', 'July 2018 Conversion visit']">
+        <p>Name: <input type="text" ng-model="name"></p>
+        <p>Search: <input type="text" ng-model="search"></p>
+
+        <p> Hello {{name}}</p>
+        <p> You searched for {{search}}</p>
+        <ol>
+            <li ng-repeat="itinerary in itineraries | filter:search">
+                {{itinerary}}
+            </li>
+        </ol>
+    </div>
+
+</body>
+</html>
