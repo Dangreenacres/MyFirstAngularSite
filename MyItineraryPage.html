@@ -18,19 +18,24 @@
                             <th>Start Date</th>
                             <th>End Date</th>
                         </tr>
-                        <tr style="text-align: left;" ng-repeat="itinerary in itineraries | filter:search">
-                            <td style="text-align: left;" >{{itinerary.itiName}}</td>
-                            <td style="text-align: left;" >{{itinerary.destination}}</td>
-                            <td style="text-align: left;" >{{itinerary.purpose}}</td>
-                            <td style="text-align: left;" >{{itinerary.startDate | date: "dd/MM/yyyy"}}</td>
-                            <td style="text-align: left;" >{{itinerary.endDate | date: "dd/MM/yyyy"}}</td>
+                        <tr ng-repeat="itinerary in itineraries | filter:search">
+                            <td>{{itinerary.itiName}}</td>
+                            <td>{{itinerary.destination}}</td>
+                            <td>{{itinerary.purpose}}</td>
+                            <td>{{itinerary.startDate | date: "dd/MM/yyyy"}}</td>
+                            <td>{{itinerary.endDate | date: "dd/MM/yyyy"}}</td>
+                            <td><button ng-click="remove(itinerary)">Remove</button></td>
                         </tr>
                     </table>
         </p>
     </div>
     <div ng-show="isEditing">
         <h2>Add Itinerary</h2>
-        <label>Itinerary Name: <input ng-model="itineraryName" /></label>
+        <p>Name: <input ng-model="itineraryName" /></p>
+        <p>Destination: <input ng-model="itineraryDestination" /></p>
+        <p>Purpose: <input ng-model="itineraryPurpose" /></p>
+        <p>Start Date: <input ng-model="itineraryStartDate" /></p>
+        <p>End Date: <input ng-model="itineraryEndDate" /></p>
         <button ng-click="add()">Add</button>
         <button ng-click="cancelAddition()">Cancel</button>
     </div>
