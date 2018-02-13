@@ -2,14 +2,21 @@
     
     $scope.add = function () {
         var itineraryDetails = {
-            id: $scope.itineraries.length + 1,
             itiName: $scope.itineraryName,
             destination: $scope.itineraryDestination,
             purpose: $scope.itineraryPurpose,
             startDate: new Date($scope.itineraryStartDate),
             endDate: new Date($scope.itineraryEndDate)
         }
-        $scope.itineraries.push(itineraryDetails);
+
+        //Doubtful that this works
+        $http.post("http://webteach_net.hallam.shu.ac.uk/acesjas/api/its", itineraryDetails)
+            .success(function () {
+                $scope.init();
+            })
+            .error(function (error) {
+                $scope.errorMessage = error;
+            });
         $scope.isEditing = false;
 
         $scope.itineraryName = "";
@@ -19,9 +26,15 @@
         $scope.itineraryEndDate = "";
     }
 
+    //Check this too
     $scope.remove = function (itineraryId) {
-        var itineraryToRemove = $scope.itineraries.indexOf(itineraryId);
-        $scope.itineraries.splice(itineraryToRemove, 1);
+        $http.delete("http://webteach_net.hallam.shu.ac.uk/acesjas/api/its" + itineraryId.Id)
+            .success(function () {
+                $scope.init();
+            })
+            .error(function (error) {
+                $scope.errorMessage = error;
+            });
     };
 
     $scope.isEditing = false;
@@ -37,12 +50,12 @@
 
     //Having trouble getting error message to show.
     $scope.init = function () {
-        $http.get("http://webteach_net.hallam.sghu.ac.uk/acesjas/api/its")
+        $http.get("http://webteach_net.hallam.shu.ac.uk/acesjas/api/its")
             .success(function (response) {
                 $scope.itineraries = response;
             })
             .error(function (error) {
-                $scope.errorMessage = error
+                $scope.errorMessage = error;
             });
     };
 
