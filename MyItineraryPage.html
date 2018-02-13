@@ -4,6 +4,7 @@
 <body ng-controller="itineraryController">
     <h1>My itinerary page</h1>
     <div ng-show="!isEditing">
+        <div ng-show="errorMessage">Error: {{errorMessage | json}}</div>
         <button ng-click="beginEditing()">Add New Itinerary</button>
         <form>
             <p>Search for itineraries <input type="text" ng-model="search"></p>
