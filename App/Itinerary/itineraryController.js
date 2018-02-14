@@ -25,10 +25,9 @@
         $scope.itineraryStartDate = "";
         $scope.itineraryEndDate = "";
     }
-
-    //Check this too
+    
     $scope.remove = function (itineraryId) {
-        $http.delete("http://webteach_net.hallam.shu.ac.uk/acesjas/api/its" + itineraryId.Id)
+        $http.delete("http://webteach_net.hallam.shu.ac.uk/acesjas/api/its/" + itineraryId)
             .success(function () {
                 $scope.init();
             })

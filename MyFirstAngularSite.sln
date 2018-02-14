@@ -3,26 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MyFirstAngularSite", "F:\MyWork\System Design and Development Project\MyFirstAngularSite\", "{7ED32B9D-1E8D-4095-9569-4A921E33A773}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MyFirstAngularSite", ".", "{D0A8EE0D-7543-45B1-BC47-0F83365DC92D}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_37866"
-		Debug.AspNetCompiler.PhysicalPath = "F:\MyWork\System Design and Development Project\MyFirstAngularSite\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_37866\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2928"
+		Debug.AspNetCompiler.PhysicalPath = "..\MyFirstAngularSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2928\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_37866"
-		Release.AspNetCompiler.PhysicalPath = "F:\MyWork\System Design and Development Project\MyFirstAngularSite\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_37866\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2928"
+		Release.AspNetCompiler.PhysicalPath = "..\MyFirstAngularSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2928\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "37866"
-		SlnRelativePath = "F:\MyWork\System Design and Development Project\MyFirstAngularSite\"
-		DefaultWebSiteLanguage = "Visual C#"
+		VWDPort = "2928"
+		SlnRelativePath = "..\MyFirstAngularSite\"
 	EndProjectSection
 EndProject
 Global
@@ -30,13 +29,13 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7ED32B9D-1E8D-4095-9569-4A921E33A773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ED32B9D-1E8D-4095-9569-4A921E33A773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A8EE0D-7543-45B1-BC47-0F83365DC92D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A8EE0D-7543-45B1-BC47-0F83365DC92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6E38CF11-C146-46D8-93F8-D978651D973B}
+		SolutionGuid = {9C115041-57BF-41F4-8DD6-189A70AEF86F}
 	EndGlobalSection
 EndGlobal
