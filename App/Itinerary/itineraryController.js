@@ -8,8 +8,7 @@
             startDate: new Date($scope.itineraryStartDate),
             endDate: new Date($scope.itineraryEndDate)
         }
-
-        //Doubtful that this works
+        
         $http.post("http://webteach_net.hallam.shu.ac.uk/acesjas/api/its", itineraryDetails)
             .success(function () {
                 $scope.init();
@@ -46,8 +45,7 @@
         $scope.isEditing = false;
         $scope.itineraryName = "";
     };
-
-    //Having trouble getting error message to show.
+    
     $scope.init = function () {
         $http.get("http://webteach_net.hallam.shu.ac.uk/acesjas/api/its")
             .success(function (response) {
