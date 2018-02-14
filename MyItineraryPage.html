@@ -3,7 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
 <body ng-controller="itineraryController">
     <h1>My itinerary page</h1>
-    <div ng-show="!isEditing">
+    <div ng-show="!isEditing ">
         <div ng-show="errorMessage">Error: {{errorMessage | json}}</div>
         <button ng-click="beginEditing()">Add New Itinerary</button>
         <form>
@@ -26,10 +26,12 @@
                             <td>{{itinerary.startDate | date: "dd/MM/yyyy"}}</td>
                             <td>{{itinerary.endDate | date: "dd/MM/yyyy"}}</td>
                             <td><button ng-click="remove(itinerary.Id)">Remove</button></td>
+                            <td><button ng-click="displayEditItinerary(itinerary.Id)">Edit</button></td>
                         </tr>
                     </table>
         </p>
     </div>
+    <!-- Add -->
     <div ng-show="isEditing">
         <h2>Add Itinerary</h2>
         <p>Name: <input ng-model="itineraryName" /></p>
@@ -37,11 +39,28 @@
         <p>Purpose: <input ng-model="itineraryPurpose" /></p>
         <p>Start Date: <input type="date" ng-model="itineraryStartDate" /></p>
         <p>End Date: <input type="date" ng-model="itineraryEndDate" /></p>
+
         <button ng-click="add()">Add</button>
         <button ng-click="cancelAddition()">Cancel</button>
     </div>
+
+    <!-- Edit -->
+    <div ng-show="isUpdating">
+        <h2>Edit Itinerary</h2>
+        <label>Itinerary Name: <input ng-model="editItineraryName" /></label><br />
+        <label>Itinerary Destination: <input ng-model="editItineraryDestination" /></label><br />
+        <label>Purpose of the Trip: <input ng-model="editItineraryPurpose" /></label><br />
+        <label>Start Date: <input type="date" ng-model="editItineraryStartDate" /></label><br />
+        <label>End Date: <input type="date"  ng-model="editItineraryEndDate" /></label><br />
+
+        <button ng-click="edit()">Edit</button>
+        <button ng-click="cancelEditing()">Cancel</button>
+    </div>
+
 </body>
+</html>
+
+
 <script src="App/myApp.js"></script>
 <script src="App/Itinerary/itineraryModel.js"></script>
 <script src="App/Itinerary/itineraryController.js"></script>
-</html>
