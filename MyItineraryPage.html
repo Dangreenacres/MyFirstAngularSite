@@ -3,7 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
 <body ng-controller="itineraryController">
     <h1>My itinerary page</h1>
-    <div ng-show="!isEditing ">
+    <div ng-show="isList ">
         <div ng-show="errorMessage">Error: {{errorMessage | json}}</div>
         <button ng-click="beginEditing()">Add New Itinerary</button>
         <form>
@@ -33,15 +33,21 @@
     </div>
     <!-- Add -->
     <div ng-show="isEditing">
-        <h2>Add Itinerary</h2>
-        <p>Name: <input ng-model="itineraryName" /></p>
-        <p>Destination: <input ng-model="itineraryDestination" /></p>
-        <p>Purpose: <input ng-model="itineraryPurpose" /></p>
-        <p>Start Date: <input type="date" ng-model="itineraryStartDate" /></p>
-        <p>End Date: <input type="date" ng-model="itineraryEndDate" /></p>
+        <form novalidate name="addForm">
+            <h2>Add Itinerary</h2>
+            <label>Name: <input ng-model="itineraryName" name="itineraryName" required ng-pattern="RE"/></label><br />
+            <div ng-show="addForm.itineraryName.$dirty && addForm.itineraryName.$invalid">
+                <span ng-show="addForm.itineraryName.$error.required">Name is required chopper.</span>
+                <span ng-show="addForm.itineraryName.$error.pattern">Name must only contain letters fam.</span>
+            </div>
+            <label>Destination: <input ng-model="itineraryDestination" required ng-pattern="RE"/></label><br />
+            <label>Purpose: <input ng-model="itineraryPurpose" required ng-pattern="RE"/></label><br />
+            <label>Start Date: <input type="date" ng-model="itineraryStartDate" required /></label><br />
+            <label>End Date: <input type="date" ng-model="itineraryEndDate" required /></label><br />
 
-        <button ng-click="add()">Add</button>
-        <button ng-click="cancelAddition()">Cancel</button>
+            <button  ng-disabled="addForm.$invalid" ng-click="add()">Add</button>
+            <button ng-click="cancelAdd()">Cancel</button>
+        </form>
     </div>
 
     <!-- Edit -->
@@ -54,7 +60,7 @@
         <label>End Date: <input type="date"  ng-model="editItineraryEndDate" /></label><br />
 
         <button ng-click="edit()">Edit</button>
-        <button ng-click="cancelEditing()">Cancel</button>
+        <button ng-click="cancelUpdate()">Cancel</button>
     </div>
 
 </body>
